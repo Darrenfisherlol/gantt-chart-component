@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 32px;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: #f7f7f8;
+  color: #1a1a1a;
+}
+
+.playground {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.playground h1 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.playground__hint {
+  margin: 0 0 20px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.playground code {
+  padding: 1px 5px;
+  font-size: 12px;
+  background: #e9e9ec;
+  border-radius: 4px;
+}

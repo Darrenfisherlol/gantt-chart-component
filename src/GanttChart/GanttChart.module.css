@@ -1,0 +1,31 @@
+
+
+.ganttChartOuterContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ganttChartLeftContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.ganttChartRightContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.ganttChartRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}

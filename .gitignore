@@ -1,0 +1,84 @@
+# COmPuter make my .gitignore better... ty claude... ps I dont want to user claude to code my component
+# ... just the annoying up
+
+# --- Dependencies -----------------------------------------------------------
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+
+# --- Build output -----------------------------------------------------------
+# dist/ is rebuilt by `prepublishOnly` before every publish, so it never needs
+# to be committed. EXCEPTION: if you ever want people to install straight from
+# GitHub (`npm i github:Darrenfisherlol/...`), there is no build step on their
+# end, so you would have to un-ignore this.
+dist/
+build/
+*.tsbuildinfo
+
+# --- Package tarballs -------------------------------------------------------
+# Produced by `npm pack` when testing the package locally before publishing.
+*.tgz
+
+# --- Vite -------------------------------------------------------------------
+.vite/
+vite.config.ts.timestamp-*
+vite.config.js.timestamp-*
+
+# --- Caches -----------------------------------------------------------------
+.cache/
+.temp/
+.eslintcache
+.stylelintcache
+coverage/
+.nyc_output/
+
+# --- Logs -------------------------------------------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- Environment ------------------------------------------------------------
+# A component library should not need secrets, but never let one slip in.
+.env
+.env.*
+!.env.example
+
+# --- Local overrides --------------------------------------------------------
+# Vite's convention for machine-specific files.
+*.local
+
+# --- Editors ----------------------------------------------------------------
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# --- Claude Code ------------------------------------------------------------
+# launch.json is worth sharing; local permission overrides are not.
+.claude/settings.local.json
+
+# --- macOS ------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# --- Windows / Linux (for anyone who clones this) ---------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.directory
+
+.Claude/
