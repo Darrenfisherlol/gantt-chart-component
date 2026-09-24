@@ -8,6 +8,7 @@ body {
 
 .playground {
   max-width: 960px;
+  max-height: 960px;
   margin: 0 auto;
 }
 

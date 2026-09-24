@@ -3,12 +3,26 @@
 import { GanttChart } from '../src';
 import type { GanttRow } from '../src';
 
+// dates must be in ISO format // YYYY-MM-DD
 const items: GanttRow[] = [
-  { id: 1, title: 'Research', startDate: '2026-01-01', endDate: '2026-01-05', order: 1 },
-  { id: 2, title: 'Design', startDate: '2026-01-04', endDate: '2026-01-10', order: 2 },
-  { id: 3, title: 'Build', startDate: '2026-01-09', endDate: '2026-01-20', order: 3 },
-  { id: 4, title: 'Ship', startDate: '2026-01-20', endDate: '2026-01-22', order: 4 },
+  { title: 'Research', startDate: '2026-01-01', endDate: '2026-01-05' },
+  { title: 'Design', startDate: '2026-01-04', endDate: '2026-01-10' },
+  { title: 'Build', startDate: '2026-01-09', endDate: '2026-01-20' },
+  { title: 'Ship', startDate: '2026-01-22', endDate: '2026-01-22' },
+  { title: 'Ship', startDate: '2026-01-21', endDate: '2026-01-22' },
+  { title: 'Ship', startDate: '2026-01-19', endDate: '2026-01-22' },
+  { title: 'Ship', startDate: '2026-01-20', endDate: '2026-01-22' },
+  { title: 'Ship', startDate: '2026-01-20', endDate: '2026-01-22' },
+  { title: 'Ship', startDate: '2026-01-20', endDate: '2026-01-22' },
+  {
+    title:
+      'A VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR',
+    startDate: '2026-01-20',
+    endDate: '2026-01-22',
+  },
 ];
+
+
 
 export const App = () => {
   return (
@@ -18,7 +32,10 @@ export const App = () => {
         Dev playground — edit <code>src/GanttChart/GanttChart.tsx</code> and this updates instantly.
       </p>
 
-      <GanttChart items={items} />
+      <GanttChart 
+      items={items}
+      theme='Mountain'
+      size='Large' />
     </main>
   );
 };
