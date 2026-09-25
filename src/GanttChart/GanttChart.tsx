@@ -8,7 +8,7 @@ export type GanttRow = {
   id?: number;
   title: string;
   startDate: string;
-  duration: string;
+  duration?: string;
   endDate: string;
 };
 
@@ -79,6 +79,22 @@ export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
     <div 
     className={`${styles.ganttChartOuterContainer} ${styles[`ganttChartOuterContainer${size}`]}`}
     >
+      <div>
+        draft
+
+        <div>
+          Chart options:
+          <button>daily</button>
+          <button>weekly</button>
+        </div>
+        <div>
+          Themes:
+          <button>Prarie</button>
+          <button>Mountain</button>
+          <button>Forest</button>
+        </div>
+      </div>
+
       <div 
       className={styles.ganttChartRowContainer}
       ref={chartContainerRef} >

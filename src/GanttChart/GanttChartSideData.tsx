@@ -3,12 +3,6 @@ import { type GanttRow } from './GanttChart';
 import { useState } from 'react';
 export interface GanttChartSideDataProps{
     items: GanttRow[];
-    // dates: {
-    //     startDate:string,
-    //     endDate:string
-    // }[];
-    // stateDate: Date;
-    // endDate: Date;
 };
 
 export const GanttChartDataHeader = ({items}: GanttChartSideDataProps) => {
@@ -103,6 +97,10 @@ export const GanttChartDataHeader = ({items}: GanttChartSideDataProps) => {
         className={styles.timeline}
         style={{ gridTemplateColumns }}
       >
+        {/* new header idea */}
+        {/* have month centered in the middle of the div ~ which size is = to days cell size */}
+        {/* ------ month ---------- month -------- */}
+        {/* 1--2--3--4--...-31-1--------------31--  */}
         {dateArray.map((date) => (
           <div
             className={styles.timelineDay}
@@ -139,6 +137,11 @@ export const GanttChartDataHeader = ({items}: GanttChartSideDataProps) => {
             key={item.id}
           >
 
+            {/*data idea*/}
+            {/*have a star flag tha is a solid line highlighting the border of the cell on ALL rows*/}
+            {/*^ same have a end flag that is a solid line border on all cells where the last date occures*/}
+            {/* types of events determine what color the row is  */}
+            {/* blue - greeen - or red - orange */}
             {startIndex !== -1 && endIndex !== -1 && (  
                 
                 // the bar itself
