@@ -1,12 +1,14 @@
 import { useRef, useState } from 'react';
 import styles from './GanttChart.module.css';
 import { useChartSizing } from './hooks/useChartSizing';
+import { GanttChartDataHeader } from './GanttChartSideData';
 
 export type GanttRow = {
   // must be a unique row identified. will assign a value if none provided
   id?: number;
   title: string;
   startDate: string;
+  duration: string;
   endDate: string;
 };
 
@@ -18,41 +20,7 @@ export type GanttChartProps = {
   size?: string;
 };
 
-
-
-
 export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
-
-  // if the user gave us Ids, use them else
-  const chartItems = items.map((item, index) => ({
-  id: item.id ?? index,
-  title: item.title,
-  startDate: item.startDate,
-  endDate: item.endDate,
-}));
-
-
-  const {
-    chartContainerRef,
-    leftWidth,
-    handleChartResize,
-  } = useChartSizing({});
-
-  // true asc
-  const [order, setOrder] = useState(true);
-  const [selectedRow, setSelectedRow] = useState<number|null>(null);
-
-
-  const handleClickOnRow = (e: React.MouseEvent, index: number) => {
-    e.preventDefault();
-
-    if (index == selectedRow) {
-    setSelectedRow(null);  
-    }
-
-    setSelectedRow(index);
-    console.log(index);
-  } 
 
   const calculateDifference = (start: string | null, end: string | null): string => {
     if (!start || !end) {
@@ -73,6 +41,39 @@ export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
     // note ex - inclusion of duration: 1 day =  1/23/24 - 1/23/24
     return Math.floor(diffMs / (1000 * 60 * 60 * 24) + 1).toString() + " Days";
   };
+
+  // if the user gave us Ids, use them else
+  const chartItems = items.map((item, index) => ({
+  id: item.id ?? index,
+  title: item.title,
+  startDate: item.startDate,
+  endDate: item.endDate,
+  duration: calculateDifference(item.startDate, item.endDate)
+}));
+
+
+  const {
+    chartContainerRef,
+    leftWidth,
+    handleChartResize,
+  } = useChartSizing({});
+
+  const [selectedRow, setSelectedRow] = useState<number|null>(null);
+
+
+  const handleClickOnRow = (e: React.MouseEvent, index: number) => {
+    e.preventDefault();
+
+    // if clicked on row again, unselect
+    if (index == selectedRow) {
+      setSelectedRow(null);  
+    }
+
+  
+    setSelectedRow(index);
+  } 
+
+  
 
   return (
     <div 
@@ -98,9 +99,6 @@ export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
 
             <tbody>
               {[...chartItems]
-                .sort((a, b) =>
-                  order ? a.id - b.id : b.id - a.id
-                )
                 .map((item) => (
                   <tr
                     key={item.id}
@@ -108,7 +106,7 @@ export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
                   >
                     <td>{item.title}</td>
                     <td>{item.startDate}</td>
-                    <td>{calculateDifference(item.startDate, item.endDate)}</td>
+                    <td>{item.duration}</td>
                     <td>{item.endDate}</td>
                   </tr>
                 ))}
@@ -116,30 +114,16 @@ export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
           </table>
         </div>
 
-
-
-
-       
         <div 
           className={styles.ganttChartDividerContainer}
           onMouseDown={handleChartResize}
         ></div>
 
         <div className={styles.ganttChartRightContainer}>
-          <div 
-          className={styles.ganttChartHeader}>
-            header
-          </div>
-          {/* content */}
-          <div>
-            {chartItems.map((item) => (
-            <div key={item.id} className={styles.ganttChartRow}>
-              {item.startDate} - {item.endDate}
-            </div>
-          ))}
-
-          </div>
-          
+      
+          <GanttChartDataHeader
+            items={chartItems}
+          />
         </div>
       </div>
       

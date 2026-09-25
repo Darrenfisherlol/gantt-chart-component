@@ -1,0 +1,70 @@
+.GanttChartDataHeaderContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+/* top header container */
+.timeline {
+    display: grid;
+    height: 32px;
+}
+
+.timelineDay {
+    /* how do we make the border not add to the margin size */
+    box-sizing:border-box;
+    height: 32px;
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+
+    font-size: 12px;
+    color: #6b7280;
+    white-space: nowrap;
+
+    border-left: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* each row of our data */
+.ganttRow {
+    position: relative;
+    display: grid;
+    height: 48px;
+    box-sizing: border-box;
+}
+
+.ganttDay {
+    border-left: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.ganttBar {
+    align-self: center;
+    height: 24px;
+    background: #4f46e5;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.tooltip {
+    position: fixed;
+    z-index: 9999;
+
+    flex: auto;
+    flex-direction: column;
+    
+    padding: 8px 12px;
+    border-radius: 6px;
+
+    background: #221aab;
+    border: 1px black;
+    color: white;
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    pointer-events: none;
+
+    /* idk if I want this but it looks pretty... so ill keep it */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}

@@ -5,22 +5,17 @@ import type { GanttRow } from '../src';
 
 // dates must be in ISO format // YYYY-MM-DD
 const items: GanttRow[] = [
-  { title: 'Research', startDate: '2026-01-01', endDate: '2026-01-05' },
-  { title: 'Design', startDate: '2026-01-04', endDate: '2026-01-10' },
-  { title: 'Build', startDate: '2026-01-09', endDate: '2026-01-20' },
-  { title: 'Ship', startDate: '2026-01-22', endDate: '2026-01-22' },
-  { title: 'Ship', startDate: '2026-01-21', endDate: '2026-01-22' },
-  { title: 'Ship', startDate: '2026-01-19', endDate: '2026-01-22' },
-  { title: 'Ship', startDate: '2026-01-20', endDate: '2026-01-22' },
-  { title: 'Ship', startDate: '2026-01-20', endDate: '2026-01-22' },
-  { title: 'Ship', startDate: '2026-01-20', endDate: '2026-01-22' },
-  {
-    title:
-      'A VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR VERR',
-    startDate: '2026-01-20',
-    endDate: '2026-01-22',
-  },
+  { title: 'Planning', startDate: '2025-09-15', endDate: '2025-10-03' },
+  { title: 'Research', startDate: '2025-09-22', endDate: '2025-10-17' },
+  { title: 'Requirements', startDate: '2025-10-01', endDate: '2025-10-24' },
+  { title: 'Design', startDate: '2025-10-13', endDate: '2025-11-07' },
+  { title: 'Architecture', startDate: '2025-10-27', endDate: '2025-11-21' },
+  { title: 'Development', startDate: '2025-11-03', endDate: '2026-01-16' },
+  { title: 'Frontend', startDate: '2025-11-10', endDate: '2025-01-19' },
+  { title: 'Backend', startDate: '2025-11-17', endDate: '2026-01-09' },
+  { title: 'User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance', startDate: '2025-12-01', endDate: '2025-12-12' },
 ];
+
 
 
 
