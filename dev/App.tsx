@@ -11,9 +11,11 @@ const items: GanttRow[] = [
   { title: 'Design', startDate: '2025-10-13', endDate: '2025-11-07' },
   { title: 'Architecture', startDate: '2025-10-27', endDate: '2025-11-21' },
   { title: 'Development', startDate: '2025-11-03', endDate: '2026-01-16' },
-  { title: 'Frontend', startDate: '2025-11-10', endDate: '2025-01-19' },
-  { title: 'Backend', startDate: '2025-11-17', endDate: '2026-01-09' },
-  { title: 'User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance', startDate: '2025-12-01', endDate: '2025-12-12' },
+  { title: 'Frontend', startDate: '2025-12-05', endDate: '2025-12-25' },
+  { title: 'Backend', startDate: '2025-11-17', endDate: '2026-02-09' },
+  { title: 'User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance User Acceptance', 
+    startDate: '2026-1-01', 
+    endDate: '2026-3-10' },
 ];
 
 
@@ -29,8 +31,9 @@ export const App = () => {
 
       <GanttChart 
       items={items}
-      theme='Mountain'
-      size='Large' />
+      userDateRange={'Month'}
+      userTheme={'Mountain'}
+      size={'Large'} />
     </main>
   );
 };

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import styles from './GanttChart.module.css';
 import { useChartSizing } from './hooks/useChartSizing';
 import { GanttChartDataHeader } from './GanttChartSideData';
@@ -15,12 +15,16 @@ export type GanttRow = {
 export type GanttChartProps = {
   items: GanttRow[];
   // Prairie green yellow, Diving gray blue, Hiking green brown
-  theme?: string;
+  userTheme?: 'Praire' | 'Mountain' | 'Forest';
   // Small, Medium, Large
   size?: string;
+  userDateRange?: 'Day' | 'Week' | 'Month';
 };
 
-export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
+export const GanttChart = ({ items, userTheme, size, userDateRange }: GanttChartProps) => {
+
+  const [dateRange, setDateRange] = useState<'Day' | 'Week' | 'Month'>(userDateRange || 'Week');
+  const [theme, setTheme] = useState<'Praire' | 'Mountain' | 'Forest'>(userTheme || 'Praire');
 
   const calculateDifference = (start: string | null, end: string | null): string => {
     if (!start || !end) {
@@ -60,7 +64,6 @@ export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
 
   const [selectedRow, setSelectedRow] = useState<number|null>(null);
 
-
   const handleClickOnRow = (e: React.MouseEvent, index: number) => {
     e.preventDefault();
 
@@ -73,8 +76,6 @@ export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
     setSelectedRow(index);
   } 
 
-  
-
   return (
     <div 
     className={`${styles.ganttChartOuterContainer} ${styles[`ganttChartOuterContainer${size}`]}`}
@@ -84,14 +85,15 @@ export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
 
         <div>
           Chart options:
-          <button>daily</button>
-          <button>weekly</button>
+          <button onClick={() => setDateRange('Day')}>daily</button>
+          <button onClick={() => setDateRange('Week')}>weekly</button>
+          <button onClick={() => setDateRange('Month')}>monthly</button>
         </div>
         <div>
           Themes:
-          <button>Prarie</button>
-          <button>Mountain</button>
-          <button>Forest</button>
+          <button onClick={()=>setTheme('Praire')}>Prarie</button>
+          <button onClick={()=>setTheme('Mountain')}>Mountain</button>
+          <button onClick={()=>setTheme('Forest')}>Forest</button>
         </div>
       </div>
 
@@ -139,6 +141,8 @@ export const GanttChart = ({ items, theme, size}: GanttChartProps) => {
       
           <GanttChartDataHeader
             items={chartItems}
+            dateRange={dateRange}
+            theme={theme}
           />
         </div>
       </div>
