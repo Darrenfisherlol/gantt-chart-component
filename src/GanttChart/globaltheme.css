@@ -1,0 +1,57 @@
+/* light beige, blue, green */
+.PrairieThemeHeader{
+    background-color: rgba(143, 175, 154, 1);
+    color: rgba(36, 53, 43, 1);
+}
+
+.PrairieThemeText {
+    color: rgba(63, 74, 66, 1);
+}
+
+.PrairieThemeSubText {
+    color: rgba(122, 130, 124, 1);
+}
+
+.PrairieThemeData {
+    color: rgba(91, 127, 146, 1);
+}
+
+/* Slate gray blue green */
+.MountainThemeHeader{
+    background-color: rgba(68, 91, 127);
+    /* background-color: rgba(84, 93, 45);
+    background-color: rgba(88, 102, 127); */
+    color: rgba(244, 245, 242, 1);
+}
+
+.MountainThemeText {
+    color: rgba(51, 64, 77, 1);
+}
+
+.MountainThemeSubText {
+    color: rgba(120, 130, 140, 1);
+}
+
+.MountainThemeData {
+    color: rgba(127, 140, 85, 1);
+    /*  rgba(84, 93, 45); */
+}
+
+/* Pre Autumn greens and such */
+.ForestThemeHeader {
+    background-color: rgba(89, 99, 84, 1);
+    color: rgba(242, 240, 232, 1);
+}
+
+.ForestThemeText {
+    color: rgba(57, 64, 57, 1);
+}
+
+.ForestThemeSubText {
+    color: rgba(133, 138, 128, 1);
+}
+
+.ForestThemeData {
+    color: rgba(152, 127, 112, 1);
+}
+
