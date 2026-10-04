@@ -6,7 +6,6 @@ import { useGanttChartSideDataDate } from './hooks/useGanttChartSideDataDate';
 export interface GanttChartSideDataProps{
     items: GanttRow[];
     dateRange?: 'Day' | 'Week' | 'Month';
-    theme?: 'Praire' | 'Mountain' | 'Forest';
 };
 
 export const GanttChartDataHeader = ({items, dateRange}: GanttChartSideDataProps) => {

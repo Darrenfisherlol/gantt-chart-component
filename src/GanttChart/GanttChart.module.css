@@ -3,6 +3,7 @@
 .ganttChartOuterContainer {
   display: flex;
   flex-direction: column;
+  color: var(--gantt-text);
 }
 
 
@@ -25,8 +26,12 @@
   flex-direction: row;
   width: 100%;
   /* does the rihgt side line stick out by 1px? */
-  border: 1px black solid;
+  border: 1px solid var(--gantt-border);
+  border-radius: 8px;
+  /* clips the header corners to the rounded border */
+  overflow: hidden;
   box-sizing: border-box;
+  background: var(--gantt-surface);
 }
 
 .ganttChartLeftContainer {
@@ -51,11 +56,13 @@
   flex: 0 0 4px;
   /* padding: 2px; */
   cursor: w-resize;
-  background: rgb(30, 98, 21);
+  /* quiet until you grab it */
+  background: var(--gantt-border);
+  transition: background-color 120ms ease;
 }
 
 .ganttChartDividerContainer:hover {
-  background-color: rgb(216, 178, 114);
+  background-color: var(--gantt-divider-hover);
 }
 
 .ganttChartRightContainer {
@@ -94,9 +101,14 @@
 
 .ganttChartTable th{
   font-weight: 600;
+  font-size: 12px;
   height: 32px;
+  /* same side padding as the cells so each header lines up with its column */
+  padding: 0 12px;
   box-sizing: border-box;
   text-align: left;
+  background: var(--gantt-header-bg);
+  color: var(--gantt-header-text);
 }
 
 .ganttChartTable td {
@@ -107,6 +119,16 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 14px;
+    color: var(--gantt-text);
+    /* row line as an inset shadow (not a border) so rows stay exactly 48px and line up with the bar rows */
+    box-shadow: inset 0 -1px 0 var(--gantt-grid);
+}
+
+/* dates + duration sit behind the title */
+.ganttChartTable td:not(:first-child) {
+  color: var(--gantt-text-muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .ganttChartTable tbody tr {
@@ -114,6 +136,5 @@
 }
 
 .ganttChartTable tbody tr:hover {
-  /* temp dependent on theme */
-  background: #eadbc1;
+  background: var(--gantt-row-hover);
 }

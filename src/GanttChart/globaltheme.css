@@ -1,57 +1,71 @@
-/* light beige, blue, green */
-.PrairieThemeHeader{
-    background-color: rgba(143, 175, 154, 1);
-    color: rgba(36, 53, 43, 1);
+/* light beige, blue, green ~ wheat surface, soft sage header, prairie sky bars */
+.PrairieTheme {
+    --gantt-surface: #fcfaf4;
+    --gantt-grid: #ede9df;
+    --gantt-border: #d7d5c5;
+
+    --gantt-header-bg: #ccdec8;
+    --gantt-header-text: #2f432f;
+    --gantt-header-muted: #4b5e4b;
+    --gantt-header-line: #b7c8b3;
+
+    --gantt-text: #2b3930;
+    --gantt-text-muted: #5c675d;
+
+    --gantt-bar: #438ebf;
+    --gantt-bar-hover: #2a78ac;
+
+    --gantt-row-hover: #f8f1e2;
+    --gantt-divider-hover: #d8b66d;
+
+    --gantt-tooltip-bg: #1f3326;
+    --gantt-tooltip-text: #f8f5ee;
 }
 
-.PrairieThemeText {
-    color: rgba(63, 74, 66, 1);
+/* Slate gray blue green ~ mist surface, deep slate header, alpine moss bars */
+.MountainTheme {
+    --gantt-surface: #f8fafd;
+    --gantt-grid: #e6eaef;
+    --gantt-border: #ced5dd;
+
+    --gantt-header-bg: #395173;
+    --gantt-header-text: #f1f6fa;
+    --gantt-header-muted: #c4d2e5;
+    --gantt-header-line: #516789;
+
+    --gantt-text: #293442;
+    --gantt-text-muted: #5a6472;
+
+    --gantt-bar: #76964a;
+    --gantt-bar-hover: #628034;
+
+    --gantt-row-hover: #ecf3fa;
+    --gantt-divider-hover: #76964a;
+
+    --gantt-tooltip-bg: #1c293d;
+    --gantt-tooltip-text: #f1f6fa;
 }
 
-.PrairieThemeSubText {
-    color: rgba(122, 130, 124, 1);
-}
+/* Pre Autumn greens and such ~ parchment surface, deep forest header, copper (first turning leaves) bars */
+.ForestTheme {
+    --gantt-surface: #fbf9f3;
+    --gantt-grid: #eae9e0;
+    --gantt-border: #d3d4c7;
 
-.PrairieThemeData {
-    color: rgba(91, 127, 146, 1);
-}
+    --gantt-header-bg: #344f3d;
+    --gantt-header-text: #f4f2e8;
+    --gantt-header-muted: #c7d2be;
+    --gantt-header-line: #4b6553;
 
-/* Slate gray blue green */
-.MountainThemeHeader{
-    background-color: rgba(68, 91, 127);
-    /* background-color: rgba(84, 93, 45);
-    background-color: rgba(88, 102, 127); */
-    color: rgba(244, 245, 242, 1);
-}
+    --gantt-text: #27342a;
+    --gantt-text-muted: #5d665b;
 
-.MountainThemeText {
-    color: rgba(51, 64, 77, 1);
-}
+    --gantt-bar: #be6f3c;
+    --gantt-bar-hover: #a85a28;
 
-.MountainThemeSubText {
-    color: rgba(120, 130, 140, 1);
-}
+    --gantt-row-hover: #f7f0e2;
+    --gantt-divider-hover: #be6f3c;
 
-.MountainThemeData {
-    color: rgba(127, 140, 85, 1);
-    /*  rgba(84, 93, 45); */
+    --gantt-tooltip-bg: #1a2e21;
+    --gantt-tooltip-text: #f4f2e8;
 }
-
-/* Pre Autumn greens and such */
-.ForestThemeHeader {
-    background-color: rgba(89, 99, 84, 1);
-    color: rgba(242, 240, 232, 1);
-}
-
-.ForestThemeText {
-    color: rgba(57, 64, 57, 1);
-}
-
-.ForestThemeSubText {
-    color: rgba(133, 138, 128, 1);
-}
-
-.ForestThemeData {
-    color: rgba(152, 127, 112, 1);
-}
-

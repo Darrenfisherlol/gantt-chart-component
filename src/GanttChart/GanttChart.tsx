@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './GanttChart.module.css';
 import { useChartSizing } from './hooks/useChartSizing';
 import { GanttChartDataHeader } from './GanttChartSideData';
+import { themeClass, type GanttTheme } from './theme';
 
 export type GanttRow = {
   // must be a unique row identified. will assign a value if none provided
@@ -15,7 +16,7 @@ export type GanttRow = {
 export type GanttChartProps = {
   items: GanttRow[];
   // Prairie green yellow, Diving gray blue, Hiking green brown
-  userTheme?: 'Praire' | 'Mountain' | 'Forest';
+  userTheme?: GanttTheme;
   // Small, Medium, Large
   size?: string;
   userDateRange?: 'Day' | 'Week' | 'Month';
@@ -24,7 +25,7 @@ export type GanttChartProps = {
 export const GanttChart = ({ items, userTheme, size, userDateRange }: GanttChartProps) => {
 
   const [dateRange, setDateRange] = useState<'Day' | 'Week' | 'Month'>(userDateRange || 'Week');
-  const [theme, setTheme] = useState<'Praire' | 'Mountain' | 'Forest'>(userTheme || 'Praire');
+  const [theme, setTheme] = useState<GanttTheme>(userTheme || 'Forest');
 
   const calculateDifference = (start: string | null, end: string | null): string => {
     if (!start || !end) {
@@ -78,7 +79,7 @@ export const GanttChart = ({ items, userTheme, size, userDateRange }: GanttChart
 
   return (
     <div 
-    className={`${styles.ganttChartOuterContainer} ${styles[`ganttChartOuterContainer${size}`]}`}
+    className={`${styles.ganttChartOuterContainer} ${styles[`ganttChartOuterContainer${size}`]} ${themeClass(theme)}`}
     >
       <div>
         draft
@@ -91,7 +92,7 @@ export const GanttChart = ({ items, userTheme, size, userDateRange }: GanttChart
         </div>
         <div>
           Themes:
-          <button onClick={()=>setTheme('Praire')}>Prarie</button>
+          <button onClick={()=>setTheme('Prairie')}>Prairie</button>
           <button onClick={()=>setTheme('Mountain')}>Mountain</button>
           <button onClick={()=>setTheme('Forest')}>Forest</button>
         </div>
@@ -142,7 +143,6 @@ export const GanttChart = ({ items, userTheme, size, userDateRange }: GanttChart
           <GanttChartDataHeader
             items={chartItems}
             dateRange={dateRange}
-            theme={theme}
           />
         </div>
       </div>
