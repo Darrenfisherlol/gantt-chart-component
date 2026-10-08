@@ -6,9 +6,11 @@ import { useGanttChartSideDataDate } from './hooks/useGanttChartSideDataDate';
 export interface GanttChartSideDataProps{
     items: GanttRow[];
     dateRange?: 'Day' | 'Week' | 'Month';
+    // row picked in the table ~ highlighted here too so both sides line up
+    selectedRowId?: number | null;
 };
 
-export const GanttChartDataHeader = ({items, dateRange}: GanttChartSideDataProps) => {
+export const GanttChartDataHeader = ({items, dateRange, selectedRowId}: GanttChartSideDataProps) => {
 
     const {
         dateArray,
@@ -55,7 +57,9 @@ export const GanttChartDataHeader = ({items, dateRange}: GanttChartSideDataProps
 
         return (
           <div
-            className={styles.ganttRow}
+            className={item.id === selectedRowId
+              ? `${styles.ganttRow} ${styles.ganttRowSelected}`
+              : styles.ganttRow}
             style={{ gridTemplateColumns }}
             key={item.id}
           >

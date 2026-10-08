@@ -16,6 +16,7 @@
     --gantt-bar-hover: #2a78ac;
 
     --gantt-row-hover: #f8f1e2;
+    --gantt-row-selected: #e6eff6;
     --gantt-divider-hover: #d8b66d;
 
     --gantt-tooltip-bg: #1f3326;
@@ -40,6 +41,7 @@
     --gantt-bar-hover: #628034;
 
     --gantt-row-hover: #ecf3fa;
+    --gantt-row-selected: #e9efdf;
     --gantt-divider-hover: #76964a;
 
     --gantt-tooltip-bg: #1c293d;
@@ -64,6 +66,7 @@
     --gantt-bar-hover: #a85a28;
 
     --gantt-row-hover: #f7f0e2;
+    --gantt-row-selected: #f4e5d9;
     --gantt-divider-hover: #be6f3c;
 
     --gantt-tooltip-bg: #1a2e21;

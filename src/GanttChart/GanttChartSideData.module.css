@@ -1,6 +1,9 @@
 .GanttChartDataHeaderContainer {
     display: flex;
     flex-direction: column;
+    /* grow with the columns ~ otherwise the header + row lines stop at the panel edge when you scroll sideways */
+    width: max-content;
+    min-width: 100%;
 }
 
 /* top header container */
@@ -34,6 +37,15 @@
     box-sizing: border-box;
     /* same row line as the table on the left */
     box-shadow: inset 0 -1px 0 var(--gantt-grid);
+}
+
+/* row picked in the table */
+.ganttRowSelected {
+    background: var(--gantt-row-selected);
+}
+
+.ganttRowSelected .ganttBar {
+    background: var(--gantt-bar-hover);
 }
 
 .ganttDay {

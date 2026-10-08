@@ -138,3 +138,13 @@
 .ganttChartTable tbody tr:hover {
   background: var(--gantt-row-hover);
 }
+
+/* selected row ~ tinted background + an accent on the left edge */
+.ganttChartTable tbody tr.ganttChartRowSelected,
+.ganttChartTable tbody tr.ganttChartRowSelected:hover {
+  background: var(--gantt-row-selected);
+}
+
+.ganttChartTable tbody tr.ganttChartRowSelected td:first-child {
+  box-shadow: inset 3px 0 0 var(--gantt-bar), inset 0 -1px 0 var(--gantt-grid);
+}

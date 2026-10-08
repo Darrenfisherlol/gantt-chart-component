@@ -44,7 +44,9 @@ export const GanttChart = ({ items, userTheme, size, userDateRange }: GanttChart
   
     // Convert milliseconds to days (1000ms * 60s * 60m * 24h) + 1 day
     // note ex - inclusion of duration: 1 day =  1/23/24 - 1/23/24
-    return Math.floor(diffMs / (1000 * 60 * 60 * 24) + 1).toString() + " Days";
+    const days: number = Math.floor(diffMs / (1000 * 60 * 60 * 24) + 1);
+
+    return `${days} ${days === 1 ? 'Day' : 'Days'}`;
   };
 
   // if the user gave us Ids, use them else
@@ -69,13 +71,13 @@ export const GanttChart = ({ items, userTheme, size, userDateRange }: GanttChart
     e.preventDefault();
 
     // if clicked on row again, unselect
-    if (index == selectedRow) {
-      setSelectedRow(null);  
+    if (index === selectedRow) {
+      setSelectedRow(null);
+      return;
     }
 
-  
     setSelectedRow(index);
-  } 
+  }
 
   return (
     <div 
@@ -121,6 +123,7 @@ export const GanttChart = ({ items, userTheme, size, userDateRange }: GanttChart
                 .map((item) => (
                   <tr
                     key={item.id}
+                    className={item.id === selectedRow ? styles.ganttChartRowSelected : undefined}
                     onClick={(e) => handleClickOnRow(e, item.id)}
                   >
                     <td>{item.title}</td>
@@ -143,6 +146,7 @@ export const GanttChart = ({ items, userTheme, size, userDateRange }: GanttChart
           <GanttChartDataHeader
             items={chartItems}
             dateRange={dateRange}
+            selectedRowId={selectedRow}
           />
         </div>
       </div>

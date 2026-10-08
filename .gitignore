@@ -16,6 +16,7 @@ node_modules/
 # GitHub (`npm i github:Darrenfisherlol/...`), there is no build step on their
 # end, so you would have to un-ignore this.
 dist/
+demo-dist/
 build/
 *.tsbuildinfo
 
